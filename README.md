@@ -83,4 +83,4 @@ Projeto baseado no **Alura MIDI**, desenvolvido durante o curso de JavaScript da
 
 ---
 
-Desenvolvido por **Felipe Gardenghi** · Projeto fictício sem fins comerciais.
+Desenvolvido por **Felipe Gardenghi**
