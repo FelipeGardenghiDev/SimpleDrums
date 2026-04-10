@@ -1,71 +1,148 @@
 :root {
-  --cinza: #aaa;
-  --vermelha: #e93d50;
-  --vermelha-escura: #af303f;
-  --branca: #fff;
-  --luz: rgb(229, 255, 0);
+  --bg-card: #110018;
+  --pink: #ff0080;
+  --pink-glow: rgba(255, 0, 128, 0.4);
+  --purple: #9b30ff;
+  --purple-glow: rgba(155, 48, 255, 0.35);
+  --branca: #ffffff;
 }
 
 body {
-  align-items: center;
-  background: linear-gradient(45deg, #a7cfdf 0%,#23538a 100%);
+  background: radial-gradient(ellipse at top, #1a0030 0%, #080010 65%);
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: 'Montserrat', sans-serif;
   min-height: 100vh;
+  padding: 2rem 1rem;
+  gap: 1.25rem;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.06) 0px,
+    rgba(0, 0, 0, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 10;
 }
 
 h1 {
   color: var(--branca);
-  margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  letter-spacing: 0.08em;
 }
 
-p {
-  color: #ffffff;
+h1 .destaque {
+  color: var(--pink);
+  text-shadow: 0 0 12px var(--pink), 0 0 32px var(--pink-glow);
+}
+
+.tagline {
+  color: var(--purple);
+  font-size: clamp(0.6rem, 1.8vw, 0.78rem);
+  letter-spacing: 0.5em;
+  margin-top: -0.75rem;
 }
 
 .teclado {
-  background: linear-gradient(to bottom, #eeeeee 0%,#cccccc 100%);
-  box-shadow: 6px 8px 0 6px #666, 10px 10px 10px #000;
-  border-radius: 30px;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 0, 128, 0.25);
+  box-shadow: 0 0 40px rgba(255, 0, 128, 0.08), inset 0 0 30px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
   display: grid;
-  gap: 10px;
+  gap: clamp(6px, 2vw, 10px);
   grid-template-columns: repeat(3, 1fr);
-  padding: 10px;
+  padding: clamp(12px, 3vw, 20px);
+  width: min(400px, 95vw);
 }
 
 .tecla {
-  background-color: var(--branca);
-  border-radius: 30px;
-  box-shadow: 3px 3px 0 var(--cinza);
-  color: var(--vermelha);
+  background: #0d001a;
+  border: 2px solid var(--pink);
+  border-radius: 12px;
+  box-shadow: 0 0 8px var(--pink-glow), inset 0 0 10px rgba(255, 0, 128, 0.05);
+  color: var(--pink);
   cursor: pointer;
-  height: 120px;
-  font-size: 1.75em;
-  font-weight: bold;
-  line-height: 120px;
+  aspect-ratio: 1;
+  width: 100%;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+  transition: transform 0.07s ease, box-shadow 0.1s ease;
+}
+
+.tecla .nome {
+  font-size: clamp(0.68rem, 2.8vw, 0.95rem);
   text-align: center;
-  width: 120px;
+  line-height: 1.2;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.tecla .atalho {
+  font-size: clamp(0.55rem, 2vw, 0.68rem);
+  opacity: 0.5;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  padding: 1px 5px;
+  letter-spacing: 0;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.tecla:hover {
+  box-shadow: 0 0 18px var(--pink-glow), inset 0 0 15px rgba(255, 0, 128, 0.12);
+  transform: translateY(-2px);
 }
 
 .tecla.ativa,
 .tecla:active {
-  background-color: var(--vermelha);
-  border: 4px solid  var(--vermelha);
-  box-shadow: 3px 3px 0 var(--vermelha-escura) inset;
-  color: var(--branca);
-  outline: none;
+  background: var(--pink);
+  color: #000;
+  border-color: var(--pink);
+  box-shadow: 0 0 30px var(--pink), 0 0 60px var(--pink-glow);
+  transform: scale(0.95);
 }
 
-.tecla.focus,
-.tecla:focus {
-  outline: none;
-  box-shadow: 1px 1px 10px var(--luz);
+.tecla:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 3px;
+  box-shadow: 0 0 14px var(--purple-glow);
 }
 
-.tecla.ativa:focus,
-.tecla:active:focus {
-  box-shadow: 3px 3px 0 var(--vermelha-escura) inset, 1px 1px 10px var(--luz);
+.tecla.ativa:focus-visible,
+.tecla:active:focus-visible {
+  box-shadow: 0 0 30px var(--pink), 0 0 60px var(--pink-glow), 0 0 14px var(--purple-glow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tecla {
+    transition: none;
+  }
+  .tecla:hover {
+    transform: none;
+  }
+  .tecla.ativa,
+  .tecla:active {
+    transform: none;
+  }
+}
+
+footer p {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
 }

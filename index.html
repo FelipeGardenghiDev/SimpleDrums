@@ -2,17 +2,16 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Alura MIDI</title>
+    <title>SimpleDrums</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/png" href="images/bateria.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/reset.css">
@@ -21,43 +20,56 @@
 </head>
 <body>
 
-    <h1>Alura Midi</h1>
+    <main class="d-flex flex-column align-items-center gap-3">
+        <h1 class="text-uppercase fw-semibold">Simple<span class="destaque">Drums</span></h1>
+        <p class="tagline text-uppercase">beat machine</p>
 
-    </br>
-    </br>
+        <section class="teclado" role="group" aria-label="Teclado de instrumentos">
+        <button class="tecla tecla_pom" data-tecla="KeyQ" aria-label="Tocar 808 - bumbo eletrônico (tecla Q)">
+            <span class="nome">808</span><span class="atalho">Q</span>
+        </button>
+        <button class="tecla tecla_clap" data-tecla="KeyW" aria-label="Tocar Clap - caixa e palmas (tecla W)">
+            <span class="nome">Clap</span><span class="atalho">W</span>
+        </button>
+        <button class="tecla tecla_tim" data-tecla="KeyE" aria-label="Tocar Hi-Hat - chimbal fechado (tecla E)">
+            <span class="nome">Hi-Hat</span><span class="atalho">E</span>
+        </button>
 
-    <section class="teclado">
-        <button class="tecla tecla_pom">Pom</button>
-        <button class="tecla tecla_clap">Clap</button>
-        <button class="tecla tecla_tim">Tim</button>
+        <button class="tecla tecla_puff" data-tecla="KeyA" aria-label="Tocar Bumbo - bumbo acústico (tecla A)">
+            <span class="nome">Bumbo</span><span class="atalho">A</span>
+        </button>
+        <button class="tecla tecla_splash" data-tecla="KeyS" aria-label="Tocar Open Hat - chimbal aberto (tecla S)">
+            <span class="nome">Open Hat</span><span class="atalho">S</span>
+        </button>
+        <button class="tecla tecla_toim" data-tecla="KeyD" aria-label="Tocar Ride - prato ride (tecla D)">
+            <span class="nome">Ride</span><span class="atalho">D</span>
+        </button>
 
-        <button class="tecla tecla_puff">Puff</button>
-        <button class="tecla tecla_splash">Splash</button>
-        <button class="tecla tecla_toim">Toim</button>
-
-        <button class="tecla tecla_psh">Psh</button>
-        <button class="tecla tecla_tic">Tic</button>
-        <button class="tecla tecla_tom">Tom</button>
+        <button class="tecla tecla_psh" data-tecla="KeyZ" aria-label="Tocar Snare - caixa eletrônica (tecla Z)">
+            <span class="nome">Snare</span><span class="atalho">Z</span>
+        </button>
+        <button class="tecla tecla_tic" data-tecla="KeyX" aria-label="Tocar Click - metrônomo (tecla X)">
+            <span class="nome">Click</span><span class="atalho">X</span>
+        </button>
+        <button class="tecla tecla_tom" data-tecla="KeyC" aria-label="Tocar Tom (tecla C)">
+            <span class="nome">Tom</span><span class="atalho">C</span>
+        </button>
     </section>
 
-    <audio src="sounds/keyq.wav" id="som_tecla_pom"></audio>
-    <audio src="sounds/keyw.wav" id="som_tecla_clap"></audio>
-    <audio src="sounds/keye.wav" id="som_tecla_tim"></audio>
-    <audio src="sounds/keya.wav" id="som_tecla_puff"></audio>
-    <audio src="sounds/keys.wav" id="som_tecla_splash"></audio>
-    <audio src="sounds/keyd.wav" id="som_tecla_toim"></audio>
-    <audio src="sounds/keyz.wav" id="som_tecla_psh"></audio>
-    <audio src="sounds/keyx.wav" id="som_tecla_tic"></audio>
-    <audio src="sounds/keyc.wav" id="som_tecla_tom"></audio>
+    </main>
 
-    </br>
-    </br>
-    </br>
-    </br>
-    <footer class="footer text-center">
-        <div class="pb-3">
-            <p>2025 <i class="bi bi-c-circle"></i> Desenvolvido por Felipe Gardenghi | Projeto fictício sem fins comerciais.</p>
-        </div>
+    <audio src="sounds/keyq.wav" id="som_tecla_pom" preload="auto"></audio>
+    <audio src="sounds/keyw.wav" id="som_tecla_clap" preload="auto"></audio>
+    <audio src="sounds/keye.wav" id="som_tecla_tim" preload="auto"></audio>
+    <audio src="sounds/keya.wav" id="som_tecla_puff" preload="auto"></audio>
+    <audio src="sounds/keys.wav" id="som_tecla_splash" preload="auto"></audio>
+    <audio src="sounds/keyd.wav" id="som_tecla_toim" preload="auto"></audio>
+    <audio src="sounds/keyz.wav" id="som_tecla_psh" preload="auto"></audio>
+    <audio src="sounds/keyx.wav" id="som_tecla_tic" preload="auto"></audio>
+    <audio src="sounds/keyc.wav" id="som_tecla_tom" preload="auto"></audio>
+
+    <footer class="mt-auto text-center pb-3">
+        <p>2025 <i class="bi bi-c-circle"></i> Desenvolvido por Felipe Gardenghi | Projeto fictício sem fins comerciais.</p>
     </footer>
 
     <script src="main.js"></script>
